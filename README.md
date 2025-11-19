@@ -136,3 +136,31 @@ The system automatically creates a file named `env_data.csv` on the SD card. The
 * **GPS Integration:** Adding a NEO-6M GPS module to geotag every air quality reading with precise location data.
 * **Live Telemetry:** Upgrading the code to send sensor data back to the ground station screen in real-time for instant analysis.
 * **NDVI Monitoring:** Integration of Near-Infrared sensors to calculate vegetation health indices for precision agriculture.
+
+## ⚙️ Calibration & Setup
+Before flying, ensure the following components are calibrated:
+
+1.  **ESC Calibration:**
+    * Disconnect the propellers.
+    * Power on the transmitter with throttle at **MAX**.
+    * Power on the drone (you will hear special beeps).
+    * Lower the throttle to **MIN** immediately.
+    * The motors will beep to confirm calibration ranges.
+
+2.  **SCD40 Sensor Baseline:**
+    * The SCD40 uses automatic self-calibration.
+    * Ensure the drone is placed in fresh air (outdoors) for at least 5 minutes before recording data to establish a clean $CO_2$ baseline.
+  
+## 🔧 Troubleshooting Common Issues
+
+| Issue | Possible Cause | Solution |
+| :--- | :--- | :--- |
+| **NRF24L01 Connection Failed** | Insufficient power stability | Solder a **10µF or 100µF capacitor** across VCC and GND of the module. |
+| **Drone Flips on Takeoff** | Wrong motor direction or Propeller mismatch | Check that **CW motors** have **CW props** and **CCW motors** have **CCW props**. |
+| **SCD40 Returns 0** | I2C Wiring Issue | Verify **SDA** is connected to A4 and **SCL** to A5. Ensure proper level shifting (3.3V vs 5V). |
+| **No Data on SD Card** | formatting issue | Format the SD card to **FAT32** before use. |
+
+## 📚 References & Datasheets
+* **SCD40 Sensor:** [Sensirion SCD4x Datasheet](https://sensirion.com/media/documents/48C4B7FB/617840D7/Sensirion_CO2_Sensors_SCD4x_Datasheet.pdf)
+* **NRF24L01+:** [Nordic Semiconductor Datasheet](https://www.sparkfun.com/datasheets/Components/SMD/nRF24L01Pluss_Preliminary_Product_Specification_v1_0.pdf)
+* **Arduino SD Library:** [Official Documentation](https://www.arduino.cc/en/Reference/SD)
