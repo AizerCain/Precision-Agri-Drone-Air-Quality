@@ -1,0 +1,22 @@
+# Arduino IDE generated files
+*.hex
+*.elf
+*.bin
+*.lock
+build/
+.arduino/
+
+# Visual Studio Code files (if you use VS Code)
+.vscode/
+*.code-workspace
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# Temporary data files (don't upload your test logs unless you want to)
+*.log
+# Keep the example csv but ignore others if strictly needed
+# env_data.csv
